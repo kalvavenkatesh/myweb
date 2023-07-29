@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    tool name: 'Maven 3.6.3', type: 'maven'
+    tool name: 'Maven 3.0.5', type: 'maven'
     
     environment{
         PATH = "/opt/maven3/bin:$PATH"
@@ -22,11 +22,11 @@ pipeline{
             steps{
                 sshagent(['tomcat-new']) {
                 sh """
-                    scp -o StrictHostKeyChecking=no **/*.war  ec2-user@172.31.27.36:/home/ec2-user/apache-tomcat-9.0.78/webapps
+                    scp -o StrictHostKeyChecking=no **/*.war  ec2-user@172.31.25.230:/home/ec2-user/apache-tomcat-9.0.78/webapps
                     
-                    ssh ec2-user@172.31.27.36: /home/ec2-user/apache-tomcat-9.0.78/bin/shutdown.sh
+                    ssh ec2-user@172.31.25.230 /home/ec2-user/apache-tomcat-9.0.78/bin/shutdown.sh
                     
-                    ssh ec2-user@172.31.27.36: /home/ec2-user/apache-tomcat-9.0.78/bin/startup.sh
+                    ssh ec2-user@172.31.25.230 /home/ec2-user/apache-tomcat-9.0.78/bin/startup.sh
                 
                 """
             }
