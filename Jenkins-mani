@@ -9,7 +9,7 @@ pipeline{
             steps{
                 git 'https://github.com/manikantak2762/myweb.git'
             }
-        }
+        }    /*
         stage("Clean"){
             steps{
                 sh "mvn clean"
@@ -45,7 +45,8 @@ pipeline{
                     
                     sh "ssh ec2-user@172.31.38.185 /home/ec2-user/apache-tomcat-9.0.78/bin/startup.sh"
                 }
-            }
-        }
+            }  
+        }   
+        */
     }
 }
