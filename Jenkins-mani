@@ -8,5 +8,21 @@ pipeline{
                 git 'https://github.com/manikantak2762/myweb.git'
             }
         }
+        stage("Clean"){
+            steps{
+                sh "mvn clean"
+            }
+        }
+        stage("Test"){
+            steps{
+                sh "mvn test"
+            }
+        }
+        stage("Artifact"){
+            steps{
+                sh "mvn package"
+                sh "mv target/*.war target/myweb.war"
+            }
+        }
     }
 }
