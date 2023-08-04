@@ -25,5 +25,10 @@ pipeline{
                 sh "mv target/*.war target/myweb.war"
             }
         }
+        stage("sonar"){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
     }
 }
