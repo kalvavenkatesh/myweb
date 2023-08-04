@@ -19,7 +19,7 @@ pipeline{
         }
         
     }
-    stage("Build"){
+    stage("Artifact"){
         sh "mvn package"
         sh "mv target/.* target/myweb.war"
 
