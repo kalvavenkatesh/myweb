@@ -17,12 +17,17 @@ pipeline{
             steps{
                 sh "mvn test"
             }
-        }     /*
+        }     
         stage("Artifact"){
             steps{
                 sh "mvn package"
                 sh "mv target/*.war target/myweb.war"
             }
         } 
+        stage("Sonar"){
+            steps{
+                sh "sonar:sonar"
+            }
+        }
     }
 }
